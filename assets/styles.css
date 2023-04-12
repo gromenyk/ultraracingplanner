@@ -21,18 +21,17 @@ header .container-fluid {
 }
 
 main .container-fluid {
-    background-color: #B6B56A;
-    /* height: 70vh;   */
-    margin-top: ;  
+    background-color: white;
+    /* height: 70vh;   */ 
 }
 
-.container-fluid h1 {
-    color: white;
+main .container-fluid h1 {
+    color: black;
     padding-top: 10px;
     font-size: 70px;
 }
 
-.container-fluid h2 {
+main .container-fluid h2 {
     color: #484848;
     font-size: 22px;
     margin-bottom: 20px;
@@ -61,10 +60,34 @@ main .container-fluid {
     border-color: #484848;
 }
 
+.form-text {
+    margin-bottom: 10px;
+}
+
 .btn {
     border-color: #484848;
     background-color: #FC5200;
-    opacity: 80%;
+    /* opacity: 50%; */
     font-size: 20px;
     margin: 10px 10px;
+    color: white;
+}
+
+hr {
+    color: #fc4700;
+    height: 1px;
+    background-color: #fc4700;
+}
+
+#crud h2 {
+    color: black;
+    font-size: 30px;
+}
+
+#table {
+    margin-top: 50px;
+}
+
+thead {
+    background-color:#FC5200;
 }
