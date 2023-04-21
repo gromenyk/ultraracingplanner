@@ -8,7 +8,7 @@ header .container-fluid {
 
 .container-fluid img {
     width: 120px;
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
 }
 
 .nav-link {
@@ -86,8 +86,35 @@ hr {
 
 #table {
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 thead {
     background-color:#FC5200;
+}
+
+tbody .actions-btn {
+    border-radius: 3px;
+    border-color: black;
+}
+
+footer {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    gap: 50px;
+    background-color: #2173BA;
+    padding: 20px 20px
+}
+
+footer img {
+    height: 100px;
+}
+
+#infoFooterGnal {
+    height: 100px;
+}
+
+.infoFooter {
+    color: white
 }
