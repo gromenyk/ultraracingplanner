@@ -9,6 +9,8 @@ caloriesInput.addEventListener("input", handleInput)
 waterInput.addEventListener("input", handleInput)
 
 let registro = []
+let editMode = false
+let editionId = null
 
 function handleInput (event) {
     const {value, name} = event.target
@@ -19,7 +21,13 @@ function handleInput (event) {
 }
 
 const addToList = document.getElementById("addToList")
-addToList.addEventListener("click", create)
+addToList.addEventListener("click", function (event) {
+                                    if (editMode === false) {
+                                        create(event)
+                                    }else {
+                                        update(event)
+                                    }
+})
 
 let registros = []
 
@@ -64,7 +72,7 @@ function createRow (registro) {
                                             <td>${registro.calories}</td>
                                             <td>${registro.water}</td>
                                             <td>              
-                                                <button class="actions-btn">Editar</button>
+                                                <button class="actions-btn" onclick="editReg(${registro.id})" type="button">Editar</button>
                                                 <button class="actions-btn" onclick="deleteReg(${registro.id})" type="button">Eliminar</button>
                                             </td>
                                             </tr>
@@ -104,6 +112,48 @@ function deleteReg(id) {
           )
         }
       })
+}
+
+function editReg(id) {
+    editMode = true
+    addToList.innerText = "Actualizar"
+    editionId = id
+    const registro = registros.find(registro=>registro.id === id)
+    const stageInput = document.getElementById("stage")
+    const foodInput = document.getElementById("food")
+    const caloriesInput = document.getElementById("calories")
+    const waterInput = document.getElementById("water")
+
+    stageInput.value = registro.stage
+    foodInput.value = registro.food
+    caloriesInput.value = registro.calories
+    waterInput.value = registro.water
+    
+}
+
+function update (event) {
+    event.preventDefault()
+    const newReg = readForm()
+    registros.id = editionId
+    const index = registros.findIndex(registro => registro.id === editionId)
+    registros.splice(index, 1, newReg)
+    saveDataLS()
+    const row = document.getElementById(editionId)
+    row.innerHTML = `<td>${newReg.stage}</td>
+                     <td>${newReg.food}</td>
+                     <td>${newReg.calories}</td>
+                     <td>${newReg.water}</td>
+                     <td>              
+                        <button class="actions-btn" onclick="editReg(${newReg.id})" type="button">Editar</button>
+                        <button class="actions-btn" onclick="deleteReg(${newReg.id})" type="button">Eliminar</button>
+                     </td>
+                    `
+    
+    
+    editMode = false
+    editionId = null
+    addToList.innerText = "Agregar a la lista"
+    clearForm()
 }
 
 function readFromLS () {
