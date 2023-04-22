@@ -98,23 +98,13 @@ tbody .actions-btn {
     border-color: black;
 }
 
-footer {
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    gap: 50px;
+.row {
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+#footerInfo {
     background-color: #2173BA;
-    padding: 20px 20px
-}
-
-footer img {
-    height: 100px;
-}
-
-#infoFooterGnal {
-    width: 100px;
-}
-
-.infoFooter {
-    color: white
+    color: white;
 }

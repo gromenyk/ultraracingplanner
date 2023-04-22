@@ -90,7 +90,7 @@ function saveDataLS () {
 }
 
 function deleteReg(id) {
-    Swal.fire({
+    swal.fire({
         title: 'Por favor confirma si realmente quieres eliminar el registro',
         text: "",
         icon: 'warning',
